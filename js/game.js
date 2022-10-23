@@ -1,4 +1,4 @@
-const test = document.getElementById('btn');
+const mine = document.getElementById('btn');
 const clickUp = document.getElementById('earn');
 const c = document.getElementById('coins');
 const autoUp = document.getElementById('autoEarn');
@@ -10,6 +10,9 @@ let time = 2000;
 let exponent = 1.4;
 let a = 0;
 let ascendBonus = 0;
+
+let coolDown = 400;
+let timer = Date.now();
 
 let earns = 1;
 let autoEarns = 1;
@@ -44,9 +47,12 @@ setInterval( function (){
     }
 }, 10);
 
-test.addEventListener('click', function(){
-    coins += earns;
-    c.innerHTML = `your coins: ${coins}`;
+mine.addEventListener('click', function(){
+    if(Date.now() >= timer) {
+        coins += earns;
+        c.innerHTML = `your coins: ${coins}`;
+        timer = Date.now() + coolDown;
+    }
 });
 
 clickUp.addEventListener('click', function(){

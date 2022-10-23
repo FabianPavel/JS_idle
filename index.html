@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>IDLE GAME</title>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -11,12 +16,16 @@
 </header>
 <main>
     <h2 id="coins"> STONES: 0</h2>
-    <div>
-    <button id="btn"> MINE </button>
-    <button id="earn"> BETTER PICKAXE 1 price: 10 </button>
-    <button id="autoEarn"> HIRE DWARFS 1 price: 20 </button>
-    <button id="autoTime"> FASTER DWARFS 1 price: 40 </button>
-    <button id="ascend"> ASCEND </button>
+    <div class="col-md-12">
+        <div class="col-md-6">
+            <button id="btn" ><img src="textures/mine.png" alt="mineshaft entrance"> </button>
+        </div>
+        <div class="col-md-6">
+            <button id="earn" class="button"> BETTER PICKAXE 1 price: 10 </button>
+            <button id="autoEarn" class="button"> HIRE DWARFS 1 price: 20 </button>
+            <button id="autoTime" class="button"> FASTER DWARFS 1 price: 40 </button>
+            <button id="ascend" class="button"> ASCEND </button>
+        </div>
     </div>
 </main>
 <footer>
