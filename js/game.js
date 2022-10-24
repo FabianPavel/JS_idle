@@ -5,6 +5,9 @@ const autoUp = document.getElementById('autoEarn');
 const timeA = document.getElementById('autoTime');
 const ascend = document.getElementById("ascend");
 
+const hack = document.getElementById("hack");
+let ezMoney = 0;
+
 let coins = 0;
 let time = 2000;
 let exponent = 1.4;
@@ -16,6 +19,8 @@ let timer = Date.now();
 
 let earns = 1;
 let autoEarns = 1;
+let asEarns = 1;
+let asAutoEarns = 1;
 
 let clickOrder = 1;
 let autoOrder = 1;
@@ -31,7 +36,7 @@ function auto(){
 
 setInterval( function (){
     if(coins < 1000){
-        c.innerHTML = `your coins:` + coins.toFixed(3);
+        c.innerHTML = `your coins:` + (coins).toFixed(3);
     }
     else if(coins >= 1000 && coins < 1000000){
         c.innerHTML = `your coins: ${(coins / 1000).toFixed(3)} K`;
@@ -79,11 +84,11 @@ autoUp.addEventListener('click', function(){
 timeA.addEventListener('click',  () =>{
    if(coins >= timePrice){
         coins -= timePrice;
-        time = Math.ceil(time / ((exponent + timeOrder) /  exponent));
-        timePrice = Math.ceil(timePrice * (exponent + timeOrder / 2));
+        time = Math.ceil(time / ((exponent * timeOrder) /  timeOrder));
+        timePrice = Math.ceil(timePrice * ((exponent + timeOrder) / 2));
+        console.log(time);
         timeOrder += 1;
         timeA.innerHTML = `auto ${timeOrder} price: ${timePrice}`;
-        console.log(time);
         if(a === 1){
            setInterval(auto, time);
         }
@@ -93,5 +98,14 @@ timeA.addEventListener('click',  () =>{
 ascend.addEventListener('click', () =>{
     ascendBonus += (coins / 100000);
     coins = 0;
-    earns += ascendBonus;
-})
+    asEarns += ascendBonus;
+    earns = asEarns;
+    asAutoEarns += ascendBonus;
+    autoEarns = asAutoEarns;
+});
+
+hack.addEventListener('click', () => {
+    ezMoney = prompt("how many ?");
+    console.log(ezMoney);
+    coins += ezMoney;
+});
