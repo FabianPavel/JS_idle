@@ -8,3 +8,19 @@ body{
 .button{
     display: block;
 }
+.a{
+    padding-left: 10%;
+}
+#hidden{
+    display: none;
+    color: aliceblue;
+    font-size: medium;
+    position: absolute;
+    top: 50%;
+    left: 19%;
+}
+#hid{
+    display: none;
+    background: aquamarine;
+    position: absolute;
+}
