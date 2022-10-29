@@ -18,9 +18,6 @@ let ascendBonus = 0;
 let autoAs = 0;
 let timeout = 0;
 
-let coolDown = 400;
-let timer = Date.now();
-
 let earns = 1;
 let autoEarns = 1;
 let asEarns = 1;
@@ -57,11 +54,7 @@ setInterval( function (){
 }, 10);
 
 mine.addEventListener('click', function(){
-    if(Date.now() >= timer) {
         coins += earns;
-        c.innerHTML = `your coins: ${coins}`;
-        timer = Date.now() + coolDown;
-    }
 });
 
 clickUp.addEventListener('click', function(){
@@ -70,7 +63,7 @@ clickUp.addEventListener('click', function(){
        earns += clickOrder;
        clickPrice = Math.ceil(clickPrice * (exponent + clickOrder / 2));
        clickOrder += 1;
-       clickUp.innerHTML = `upgrade ${clickOrder} price: ${clickPrice}`;
+       clickUp.innerHTML = `PICKAXE || tier:${clickOrder} || upgrade to next tier: ${clickPrice}`;
    }
    else{
        document.getElementById("hidden").style.display = "inline";
@@ -86,7 +79,7 @@ autoUp.addEventListener('click', function(){
        coins -= autoPrice;
        autoPrice = Math.ceil(autoPrice * (exponent + autoOrder / 2));
        autoOrder += 1;
-       autoUp.innerHTML = `auto ${autoOrder} price: ${autoPrice}`;
+       autoUp.innerHTML = `DWARF || tier:${autoOrder} || upgrade to next tier: ${autoPrice}`;
        a = 1;
        autoAs = setInterval(auto, time);
    }
@@ -99,7 +92,7 @@ timeA.addEventListener('click',  () =>{
         timePrice = Math.ceil(timePrice * ((exponent + timeOrder) / 2));
         console.log(time);
         timeOrder += 1;
-        timeA.innerHTML = `auto ${timeOrder} price: ${timePrice}`;
+        timeA.innerHTML = `FASTER DWARF || tier:${timeOrder} || upgrade to next tier: ${timePrice}`;
        if(a === 1){
            autoAs =setInterval(auto, time);
        }
